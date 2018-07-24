@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CustomBeanRegistry">
+    <option name="map">
+      <map>
+        <entry key="&lt;dubbo:protocol xmlns:dubbo=&quot;http://code.alibabatech.com/schema/dubbo&quot; name=&quot;dubbo&quot; port=&quot;20880&quot; /&gt;">
+          <value>
+            <list>
+              <CustomBeanInfo>
+                <option name="beanName" value="dubbo" />
+                <option name="beanClassName" value="com.alibaba.dubbo.config.ProtocolConfig" />
+                <option name="idAttribute" value="name" />
+              </CustomBeanInfo>
+            </list>
+          </value>
+        </entry>
+        <entry key="&lt;dubbo:service xmlns:dubbo=&quot;http://code.alibabatech.com/schema/dubbo&quot; interface=&quot;org.meizhuo.taotao.service.TestService&quot; ref=&quot;testServiceImpl&quot; timeout=&quot;0&quot; async=&quot;false&quot; version=&quot;0.0.0&quot; delay=&quot;0&quot; /&gt;">
+          <value>
+            <list>
+              <CustomBeanInfo>
+                <option name="beanName" value="org.meizhuo.taotao.service.TestService" />
+                <option name="beanClassName" value="com.alibaba.dubbo.config.spring.ServiceBean" />
+                <option name="idAttribute" value="interface" />
+              </CustomBeanInfo>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="policies">
+      <map>
+        <entry>
+          <key>
+            <MyQName>
+              <option name="namespace" value="http://code.alibabatech.com/schema/dubbo" />
+              <option name="localName" value="service" />
+            </MyQName>
+          </key>
+          <value>
+            <CustomBeanInfo>
+              <option name="beanClassName" value="com.alibaba.dubbo.config.spring.ServiceBean" />
+              <option name="idAttribute" value="interface" />
+            </CustomBeanInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

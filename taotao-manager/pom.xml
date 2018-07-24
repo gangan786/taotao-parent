@@ -35,10 +35,11 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
                     <port>8080</port>
-                    <path>/Taotao</path>
+                    <path>/</path>
                 </configuration>
             </plugin>
         </plugins>
+
     </build>
 
 

@@ -1,7 +1,7 @@
 # taotao-parent
 Taotao商城练手项目
 项目来源于网络资源
-#技术架构为：
+#   技术架构为：
 ##	Spring、SpringMVC、Mybatis
 ## JSP、JSTL、jQuery、EasyUI、KindEditor（富文本编辑器）
 ##	Redis（缓存服务器，单点登录，购物车）
