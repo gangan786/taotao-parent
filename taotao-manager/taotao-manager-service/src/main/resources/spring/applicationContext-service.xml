@@ -9,7 +9,7 @@
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
 
-	<context:component-scan base-package="org.meizhuo.taotao.service"></context:component-scan>
+	<context:component-scan base-package="org.meizhuo.taotao.service"/>
 	<!-- 使用dubbo发布服务 -->
 	<!-- 提供方应用信息，用于计算依赖关系 -->
 	<dubbo:application name="taotao-manager" />
@@ -18,4 +18,5 @@
 	<dubbo:protocol name="dubbo" port="20880" />
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="org.meizhuo.taotao.service.TestService" ref="testServiceImpl" />
+	<dubbo:service interface="org.meizhuo.taotao.service.ItemService" ref="itemServiceImpl"/>
 </beans>
