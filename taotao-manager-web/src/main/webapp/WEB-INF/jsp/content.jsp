@@ -25,13 +25,19 @@
     </div>
 </div>
 <script type="text/javascript">
+//文档加载时处理以下的逻辑
 $(function(){
-	var tree = $("#contentCategoryTree");
-	var datagrid = $("#contentList");
-	tree.tree({
+	var tree = $("#contentCategoryTree");//获取树
+	var datagrid = $("#contentList");//获取表格
+	tree.tree({//创建一颗树
+		//url:'/content/category/list
+		//点击树的节点的时候触发
 		onClick : function(node){
+			//判断如果点击的节点是叶子节点
 			if(tree.tree("isLeaf",node.target)){
+				//加载表格中的数据  重新发送URL请求 加载数据
 				datagrid.datagrid('reload', {
+					//发送请求的参数：categoryId :分类的id 
 					categoryId :node.id
 		        });
 			}
@@ -41,13 +47,21 @@ $(function(){
 var contentListToolbar = [{
     text:'新增',
     iconCls:'icon-add',
+    //处理点击事件时触发
     handler:function(){
+    	//表示获取树中被选中的节点
     	var node = $("#contentCategoryTree").tree("getSelected");
+    	//if(node)  表示有节点
+    	//$("#contentCategoryTree").tree("isLeaf",node.target)：获取节点，判断是否为叶子节点  表示是叶子
+    	//如果没有选择节点或者选择的节点为父节点。
     	if(!node || !$("#contentCategoryTree").tree("isLeaf",node.target)){
     		$.messager.alert('提示','新增内容必须选择一个内容分类!');
     		return ;
     	}
+    	//表示选中的是叶子节点，处理以下的业务
+    	//创建窗口
     	TT.createWindow({
+    		//动态的发送url /content-add  获取JSP页面，展示在窗口中
 			url : "/content-add"
 		}); 
     }
@@ -86,6 +100,7 @@ var contentListToolbar = [{
     text:'删除',
     iconCls:'icon-cancel',
     handler:function(){
+    	//获取被选中的内容的id的集合
     	var ids = TT.getSelectionsIds("#contentList");
     	if(ids.length == 0){
     		$.messager.alert('提示','未选中商品!');

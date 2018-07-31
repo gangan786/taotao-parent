@@ -50,10 +50,7 @@
 	            </td>
 	        </tr>
 	        <tr class="params hide">
-	        	<td>商品规格:</td>
-	        	<td>
-	        		
-	        	</td>
+	        	
 	        </tr>
 	    </table>
 	    <input type="hidden" name="itemParams"/>

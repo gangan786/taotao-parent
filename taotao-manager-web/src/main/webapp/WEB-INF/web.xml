@@ -40,6 +40,8 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>taotao-manager-web</servlet-name>
+		<!-- /* 表示拦截所有，包括转发的Jsp页面    这是错误的，不能用-->
+		<!--  / 表示拦截所有的静态资源，不包括转发JSP -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
   

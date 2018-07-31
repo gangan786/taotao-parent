@@ -1,6 +1,8 @@
 package org.meizhuo.taotao.service;
 
 import org.meizhuo.taotao.common.pojo.EasyUIDataGridResult;
+import org.meizhuo.taotao.common.utils.E3Result;
+import org.meizhuo.taotao.pojo.TbItem;
 
 /**
  * @ProjectName: taotao-parent
@@ -17,4 +19,5 @@ import org.meizhuo.taotao.common.pojo.EasyUIDataGridResult;
  */
 public interface ItemService {
     EasyUIDataGridResult getItemList(Integer page,Integer rows);
+    E3Result addItem(TbItem item,String desc);
 }

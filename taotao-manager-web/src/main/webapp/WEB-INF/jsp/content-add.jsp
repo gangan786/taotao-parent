@@ -4,7 +4,7 @@
 <script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/lang/zh_CN.js"></script>
 <div style="padding:10px 10px 10px 10px">
 	<form id="contentAddForm" class="itemForm" method="post">
-		<input type="hidden" name="categoryId"/>
+		<input type="hidden" name="categoryId"/><!-- 存放的是被选中的内容分类的id -->
 	    <table cellpadding="5">
 	        <tr>
 	            <td>内容标题:</td>
@@ -53,8 +53,10 @@
 <script type="text/javascript">
 	var contentAddEditor ;
 	$(function(){
+		//初始化富文本编辑器 放到content 这个textarea 中
 		contentAddEditor = TT.createEditor("#contentAddForm [name=content]");
 		TT.initOnePicUpload();
+		//$("#contentCategoryTree").tree("getSelected")  是被选中的树的节点  的id 值设置到隐藏域中
 		$("#contentAddForm [name=categoryId]").val($("#contentCategoryTree").tree("getSelected").id);
 	});
 	
@@ -64,12 +66,14 @@
 					$.messager.alert('提示','表单还未填写完成!');
 					return ;
 				}
-				contentAddEditor.sync();
+				contentAddEditor.sync();//同步富文本编辑器的内容 到textarea
 				
 				$.post("/content/save",$("#contentAddForm").serialize(), function(data){
 					if(data.status == 200){
 						$.messager.alert('提示','新增内容成功!');
+						//重新加载表格中的内容列表数据
     					$("#contentList").datagrid("reload");
+						//关闭窗口
     					TT.closeCurrentWindow();
 					}
 				});

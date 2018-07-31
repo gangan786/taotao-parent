@@ -9,6 +9,9 @@
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 
+    <!--加载图片服务器配置文件-->
+    <context:property-placeholder location="classpath:conf/resource.properties"/>
+
 	<context:component-scan base-package="org.meizhuo.taotao.controller" />
 	<mvc:annotation-driven />
 	<bean
@@ -16,11 +19,18 @@
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	<!-- 配置静态资源映射  -->
-	<!-- 指定/WEB-INF/js   /WEB-INF/css/  下的所有的静态资源包括子目录下的静态资源  都不被拦截-->
-	<!--  mapping=/js/**  :表示访问静态资源的路径的形式    可以访问 /js/下的静态资源或者所有的子目录下的静态资源-->
-	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
-	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
+
+    <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
+    <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
+
+	<!--多媒体解析器-->
+	<bean id="multipartResolver"
+    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--设定编码-->
+        <property name="defaultEncoding" value="UTD-8"/>
+        <!--设定文件最大上传值为5mb 5*1024*1024-->
+        <property name="maxUploadSize" value="5242880"/>
+	</bean>
 	
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="taotao-manager-web"/>

@@ -1,6 +1,8 @@
 package org.meizhuo.taotao.controller;
 
 import org.meizhuo.taotao.common.pojo.EasyUIDataGridResult;
+import org.meizhuo.taotao.common.utils.E3Result;
+import org.meizhuo.taotao.pojo.TbItem;
 import org.meizhuo.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,4 +35,11 @@ public class ItemController {
 
         return itemService.getItemList(page,rows);
     }
+
+    @RequestMapping(value = "/item/save",method = RequestMethod.POST)
+    @ResponseBody
+    public E3Result addItem(TbItem tbItem, String desc){
+        return itemService.addItem(tbItem, desc);
+    }
+
 }
