@@ -13,5 +13,9 @@
     <file url="file://$PROJECT_DIR$/taotao-manager/taotao-manager-pojo" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taotao-manager/taotao-manager-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/taotao-portal-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taotao-search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taotao-search-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taotao-search/taotao-search-interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/taotao-search/taotao-search-service" charset="UTF-8" />
   </component>
 </project>

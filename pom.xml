@@ -13,6 +13,8 @@
         <module>taotao-manager-web</module>
         <module>taotao-portal-web</module>
         <module>taotao-content</module>
+        <module>taotao-search</module>
+        <module>taotao-search-web</module>
     </modules>
     <packaging>pom</packaging>
 
