@@ -32,7 +32,8 @@ public class SearchController {
     private Integer SEARCH_RESULT_ROWS;
 
     @RequestMapping("/search")
-    public String searchItemList(String keyword, @RequestParam(defaultValue = "1") Integer page,
+    public String searchItemList(String keyword,
+                                 @RequestParam(defaultValue = "1") Integer page,
                                  Model model) throws Exception {
         keyword = new String(keyword.getBytes("iso-8859-1"), "utf-8");
         SearchResult search = searchService.search(keyword, page, SEARCH_RESULT_ROWS);
