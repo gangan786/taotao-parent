@@ -12,8 +12,12 @@ import org.meizhuo.taotao.pojo.TbItemDesc;
 import org.meizhuo.taotao.pojo.TbItemExample;
 import org.meizhuo.taotao.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import javax.jms.*;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +40,10 @@ public class ItemServiceImpl implements ItemService {
     private TbItemMapper mapper;
     @Autowired
     private TbItemDescMapper tbItemDescMapper;
+    @Autowired
+    private JmsTemplate jmsTemplate;
+    @Resource
+    private Destination topicDestination;
 
     @Override
     public EasyUIDataGridResult getItemList(Integer page, Integer rows) {
@@ -52,9 +60,9 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public E3Result addItem(TbItem item, String desc) {
+    public E3Result addItem(final TbItem item, String desc) {
         //生成商品ID
-        long itemId = IDUtils.genItemId();
+        final long itemId = IDUtils.genItemId();
         item.setId(itemId);
         //1-正常 2-下架 3-刪除
         item.setStatus((byte) 1);
@@ -69,6 +77,15 @@ public class ItemServiceImpl implements ItemService {
         //插入数据
         mapper.insert(item);
         tbItemDescMapper.insert(tbItemDesc);
+        //发送消息 将商品消息插入索引库
+        jmsTemplate.send(topicDestination, new MessageCreator() {
+            @Override
+            public Message createMessage(Session session) throws JMSException {
+                TextMessage message = session.createTextMessage(itemId + "");
+                return message;
+            }
+        });
+
         return E3Result.ok();
     }
 }
