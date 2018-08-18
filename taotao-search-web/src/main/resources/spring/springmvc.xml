@@ -24,7 +24,7 @@
     <bean class="org.meizhuo.taotao.search.execption.GlobalExceptionResolver"/>
 
 	<!-- 引用dubbo服务 -->
-	<dubbo:application name="e3-search-web"/>
+	<dubbo:application name="taotao-search-web"/>
 	<dubbo:registry protocol="zookeeper" address="120.79.78.179:2181"/>
 	<dubbo:reference interface="org.meizhuo.taotao.search.service.SearchService" id="searchService"/>
 </beans>

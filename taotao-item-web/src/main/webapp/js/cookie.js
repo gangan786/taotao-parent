@@ -158,7 +158,7 @@ function isOnline(wwwurl,homeurl,passporturl){
 			}else{
 				welComeMsg = nickName+'，欢迎您！';
 			}
-			$('#login').html(welComeMsg+'<a href="'+passporturl+'/?returnUrl='+escape(document.location.href)+'">请登录</a> | <a href="'+passporturl+'/reg/?returnUrl='+escape(document.location.href)+'">免费注册</a>');
+			$('#login').html(welComeMsg+''+passporturl+'<a href="/?returnUrl=">请登录</a> | <a href="'+escape(document.location.href)+''+passporturl+'/reg/?returnUrl='+escape(document.location.href)+'">免费注册</a>');
 		}
 		if(data.qqcb){
 			$('#qqcb').html(data.qqcb); 
