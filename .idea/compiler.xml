@@ -19,6 +19,9 @@
         <module name="taotao-search-interface" />
         <module name="taotao-search-service" />
         <module name="taotao-search-web" />
+        <module name="taotao-sso-interface" />
+        <module name="taotao-sso-service" />
+        <module name="taotao-sso-web" />
       </profile>
     </annotationProcessing>
   </component>

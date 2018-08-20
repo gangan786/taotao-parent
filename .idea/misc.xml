@@ -10,6 +10,9 @@
     <file type="web" url="file://$PROJECT_DIR$/taotao-search-web" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-search/taotao-search-interface" />
     <file type="web" url="file://$PROJECT_DIR$/taotao-search/taotao-search-service" />
+    <file type="web" url="file://$PROJECT_DIR$/taotao-sso-web" />
+    <file type="web" url="file://$PROJECT_DIR$/taotao-sso/taotao-sso-interface" />
+    <file type="web" url="file://$PROJECT_DIR$/taotao-sso/taotao-sso-service" />
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />

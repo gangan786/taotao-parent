@@ -12,20 +12,18 @@
 	<!-- 加载配置文件 -->
 	<context:property-placeholder location="classpath:conf/resource.properties" />
 	
-	<context:component-scan base-package="org.meizhuo.taotao.item.controller" />
+	<context:component-scan base-package="org.meizhuo.taotao.sso.controller" />
 	<mvc:annotation-driven />
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-    <!--整合FreeMarker-->
-    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath" value="WEB-INF/ftl"/>
-        <property name="defaultEncoding" value="UTF-8"/>
-    </bean>
+	<mvc:resources location="/css/" mapping="/css/**"/>
+	<mvc:resources location="/js/" mapping="/js/**"/>
+	<mvc:resources location="/images/" mapping="/images/**"/>
 	<!-- 引用dubbo服务 -->
-	<dubbo:application name="taotao-item-web"/>
+	<dubbo:application name="e3-sso-web"/>
 	<dubbo:registry protocol="zookeeper" address="120.79.78.179:2181"/>
-	<dubbo:reference interface="org.meizhuo.taotao.service.ItemService" id="itemService" />
+	<!-- <dubbo:reference interface="cn.e3mall.content.service.ContentService" id="contentService" /> -->
 </beans>
