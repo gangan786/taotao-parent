@@ -23,7 +23,10 @@
 	<mvc:resources location="/js/" mapping="/js/**"/>
 	<mvc:resources location="/images/" mapping="/images/**"/>
 	<!-- 引用dubbo服务 -->
-	<dubbo:application name="e3-sso-web"/>
+	<dubbo:application name="taotao-sso-web"/>
 	<dubbo:registry protocol="zookeeper" address="120.79.78.179:2181"/>
 	<!-- <dubbo:reference interface="cn.e3mall.content.service.ContentService" id="contentService" /> -->
+    <dubbo:reference interface="org.meizhuo.taotao.sso.service.RegisterService" id="registerService" />
+    <dubbo:reference interface="org.meizhuo.taotao.sso.service.LoginService" id="loginService" />
+	<dubbo:reference interface="org.meizhuo.taotao.sso.service.TokenService" id="tokenService" />
 </beans>

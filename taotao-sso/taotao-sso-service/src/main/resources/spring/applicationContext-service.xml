@@ -20,4 +20,7 @@
 	<dubbo:protocol name="dubbo" port="20883" />
 	<!-- 声明需要暴露的服务接口 -->
 	<!-- <dubbo:service interface="cn.e3mall.content.service.ContentService" ref="contentServiceImpl" timeout="600000"/> -->
+    <dubbo:service interface="org.meizhuo.taotao.sso.service.RegisterService" ref="registerServiceImpl" timeout="600000"/>
+    <dubbo:service interface="org.meizhuo.taotao.sso.service.LoginService" ref="loginServiceImpl" timeout="600000"/>
+	<dubbo:service interface="org.meizhuo.taotao.sso.service.TokenService" ref="tokenServiceImpl" timeout="600000"/>
 </beans>
