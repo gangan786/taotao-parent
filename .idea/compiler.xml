@@ -6,6 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="taotao-cart-interface" />
+        <module name="taotao-cart-service" />
+        <module name="taotao-cart-web" />
         <module name="taotao-common" />
         <module name="taotao-content-interface" />
         <module name="taotao-content-service" />
