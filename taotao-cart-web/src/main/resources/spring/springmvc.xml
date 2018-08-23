@@ -20,16 +20,17 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<!-- 拦截器配置 -->
-	<!--<mvc:interceptors>-->
-		<!--<mvc:interceptor>-->
-			<!--<mvc:mapping path="/**"/>-->
-			<!--<bean class="cn.e3mall.cart.interceptor.LoginInterceptor"/>-->
-		<!--</mvc:interceptor>-->
-	<!--</mvc:interceptors>-->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<!--拦截所有请求-->
+			<bean class="org.meizhuo.taotao.cart.Interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<!-- 引用dubbo服务 -->
 	<dubbo:application name="taotao-cart-web"/>
 	<dubbo:registry protocol="zookeeper" address="120.79.78.179:2181"/>
-	<!--<dubbo:reference interface="cn.e3mall.service.ItemService" id="itemService" />-->
-	<!--<dubbo:reference interface="cn.e3mall.sso.service.TokenService" id="tokenService" />-->
-	<!--<dubbo:reference interface="cn.e3mall.cart.service.CartService" id="cartService" />-->
+	<dubbo:reference interface="org.meizhuo.taotao.service.ItemService" id="itemService" />
+	<dubbo:reference interface="org.meizhuo.taotao.sso.service.TokenService" id="tokenService" />
+	<dubbo:reference interface="org.meizhuo.taotao.cart.service.CartService" id="cartService" />
 </beans>
