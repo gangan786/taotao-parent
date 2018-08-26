@@ -14,5 +14,4 @@ Taotao商城练手项目
 ##	FreeMarker（网页静态化）
 ## Nginx（反向代理服务器）
 ## MyCat（数据库中间件）
-
-
+![avatar](https://github.com/gangan786/taotao-parent/blob/master/introduce/%E6%9E%B6%E6%9E%84%E5%9B%BE.png?raw=true)
